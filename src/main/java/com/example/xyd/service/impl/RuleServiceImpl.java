@@ -77,12 +77,17 @@ public class RuleServiceImpl implements RuleService {
         PageHelper.startPage(pageNo, pageSize);
         List<Rule> ruleList = ruleDao.queryAll(null);
         // 如果考虑性能问题，可以考虑用 LEFT JOIN 连表查询
-        for(Rule rule : ruleList) {
+        for (Rule rule : ruleList) {
             Method method = methodDao.queryById(rule.getMethodId());
-            if(method != null) {
+            if (method != null) {
                 rule.setMethodName(method.getName());
             }
         }
         return new PageInfo<>(ruleList);
+    }
+
+    @Override
+    public List<Rule> findAll() {
+        return ruleDao.queryAll(null);
     }
 }

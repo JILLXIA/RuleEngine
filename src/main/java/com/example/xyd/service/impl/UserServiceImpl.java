@@ -74,4 +74,9 @@ public class UserServiceImpl implements UserService {
         List<User> userList = userDao.queryAll(null);
         return new PageInfo<>(userList);
     }
+
+    @Override
+    public List<User> findAll() {
+        return userDao.queryAll(null);
+    }
 }

@@ -48,12 +48,19 @@ public interface RuleService {
 
     /**
      * 分页查询
+     *
      * @param pageNo
      * @param pageSize
      * @return
      */
     PageInfo<Rule> findAll(Integer pageNo, Integer pageSize);
 
+    /**
+     * 获取所有规则
+     *
+     * @return
+     */
+    List<Rule> findAll();
 
 
 }

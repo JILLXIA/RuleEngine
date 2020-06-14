@@ -2,6 +2,7 @@ package com.example.xyd.controller;
 
 import com.example.xyd.entity.User;
 import com.example.xyd.service.UserService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -12,8 +13,7 @@ import javax.annotation.Resource;
  * @author saysky
  * @since 2020-06-13 22:01:25
  */
-@RestController
-@RequestMapping("user")
+@Controller
 public class UserController {
     /**
      * 服务对象
@@ -21,15 +21,21 @@ public class UserController {
     @Resource
     private UserService userService;
 
+
     /**
-     * 通过主键查询单条数据
+     * 通过用户ID查询用户积分
      *
-     * @param id 主键
+     * @param userId 用户ID
      * @return 单条数据
      */
-    @GetMapping("selectOne")
-    public User selectOne(Long id) {
-        return this.userService.queryById(id);
+    @GetMapping("/user/score")
+    @ResponseBody
+    public Integer getUserScore(@RequestParam("userId") Long userId) {
+        User user = userService.queryById(userId);
+        if (user == null) {
+            return null;
+        }
+        return user.getScore();
     }
 
 }

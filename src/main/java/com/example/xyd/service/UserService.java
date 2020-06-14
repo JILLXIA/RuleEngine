@@ -3,6 +3,8 @@ package com.example.xyd.service;
 import com.example.xyd.entity.User;
 import com.github.pagehelper.PageInfo;
 
+import java.util.List;
+
 
 /**
  * (User)表服务接口
@@ -51,5 +53,12 @@ public interface UserService {
      * @return
      */
     PageInfo<User> findAll(Integer pageNo, Integer pageSize);
+
+
+    /**
+     * 获取所有用户
+     * @return
+     */
+    List<User> findAll();
 
 }

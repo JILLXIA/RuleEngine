@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  * @author saysky
  * @since 2020-06-13 22:01:25
  */
-@Controller
+@RestController
 public class MethodController {
     /**
      * 服务对象

@@ -39,3 +39,10 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
+# 配置swagger
+swagger:
+  basePackage: com.example.xyd.controller
+  title: xydのAPI
+  description: RuleEngine
+  version: V1.0

@@ -2,6 +2,7 @@ package com.example.xyd.controller;
 
 import com.example.xyd.entity.User;
 import com.example.xyd.service.UserService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@ import javax.annotation.Resource;
  * @author saysky
  * @since 2020-06-13 22:01:25
  */
-@Controller
+@RestController
 public class UserController {
     /**
      * 服务对象
@@ -29,6 +30,7 @@ public class UserController {
      * @return 单条数据
      */
     @GetMapping("/user/score")
+    @ApiOperation(value="查看用户的积分")
     @ResponseBody
     public Integer getUserScore(@RequestParam("userId") Long userId) {
         User user = userService.queryById(userId);
@@ -39,6 +41,7 @@ public class UserController {
     }
 
     @GetMapping("/user/addScore")
+    @ApiOperation(value="增加用户的积分")
     @ResponseBody
     public Integer addUserScore(@RequestParam("userId") Long userId,@RequestParam("value") int value) {
         User user = userService.addById(userId,value);
@@ -49,6 +52,7 @@ public class UserController {
     }
 
     @GetMapping("/user/subScore")
+    @ApiOperation(value="减少用户的积分")
     @ResponseBody
     public Integer subUserScore(@RequestParam("userId") Long userId,@RequestParam("value") int value) {
         User user = userService.subById(userId,value);

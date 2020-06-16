@@ -2,8 +2,8 @@ package com.example.xyd.controller;
 
 import com.example.xyd.entity.User;
 import com.example.xyd.service.UserService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 import javax.annotation.Resource;
@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  * @author saysky
  * @since 2020-06-13 22:01:25
  */
-@RestController
+@Controller
 public class UserController {
     /**
      * 服务对象

@@ -18,7 +18,7 @@ import java.util.List;
  * @author saysky
  * @since 2020-06-13 22:01:25
  */
-@RestController
+@Controller
 public class RuleController {
 
     /**

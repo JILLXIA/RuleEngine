@@ -44,7 +44,8 @@ CREATE TABLE `rule` (
   `name` varchar(255) NOT NULL COMMENT '规则名称',
   `method_id` bigint(20) NOT NULL COMMENT '取数方法ID',
   `operator` varchar(10) NOT NULL COMMENT '运算符：>、<、>=、<=、==',
-  `threshold` int(11) NOT NULL COMMENT '阈值',
+  `minThreshold` int(11) NOT NULL COMMENT '下界阈值',
+  `maxThreshold` int(11) NOT NULL COMMENT '上界阈值',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
@@ -52,8 +53,8 @@ CREATE TABLE `rule` (
 -- Records of rule
 -- ----------------------------
 BEGIN;
-INSERT INTO `rule` VALUES (1, '用户积分大于100的', 1, '>', 100);
-INSERT INTO `rule` VALUES (2, '用户积分等于0的', 1, '=', 0);
+INSERT INTO `rule` VALUES (1, '用户积分大于100的', 1, '>', 100,100000);
+INSERT INTO `rule` VALUES (2, '用户积分等于0的', 1, '=', 0,100);
 COMMIT;
 
 -- ----------------------------

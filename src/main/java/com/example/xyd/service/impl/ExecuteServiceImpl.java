@@ -66,8 +66,9 @@ public class ExecuteServiceImpl implements ExecuteService {
             }
 
             String operator = rule.getOperator();
-            Integer threshold = rule.getThreshold();
-
+            Integer minThreshold = rule.getMinThreshold();
+            Integer maxThreshold = rule.getMaxThreshold();
+            /*
             if (operator.equals(">")) {
                 if (result > threshold) {
                     this.trigger(rule.getId(), user.getId());
@@ -89,6 +90,8 @@ public class ExecuteServiceImpl implements ExecuteService {
                     this.trigger(rule.getId(), user.getId());
                 }
             }
+
+             */
         }
     }
 

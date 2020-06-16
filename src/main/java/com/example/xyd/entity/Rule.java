@@ -26,10 +26,32 @@ public class Rule implements Serializable {
     * 运算符：>、<、>=、<=、=
     */
     private String operator;
+
     /**
-    * 阈值
+    * 下界阈值
     */
-    private Integer threshold;
+    private Integer minThreshold;
+
+    public Integer getMinThreshold() {
+        return minThreshold;
+    }
+
+    public void setMinThreshold(Integer minThreshold) {
+        this.minThreshold = minThreshold;
+    }
+
+    /**
+     * 上界阈值
+     */
+    private Integer maxThreshold;
+
+    public Integer getMaxThreshold() {
+        return maxThreshold;
+    }
+
+    public void setMaxThreshold(Integer maxThreshold) {
+        this.maxThreshold = maxThreshold;
+    }
 
     /**
      * 取数方法名称：根据methodId去method表查询
@@ -69,13 +91,6 @@ public class Rule implements Serializable {
         this.operator = operator;
     }
 
-    public Integer getThreshold() {
-        return threshold;
-    }
-
-    public void setThreshold(Integer threshold) {
-        this.threshold = threshold;
-    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;

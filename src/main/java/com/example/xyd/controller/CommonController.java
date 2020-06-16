@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author 言曌
  * @date 2020/6/13 11:21 下午
  */
-@RestController
+@Controller
 public class CommonController {
 
     /**

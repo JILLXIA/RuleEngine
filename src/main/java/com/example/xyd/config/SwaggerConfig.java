@@ -17,36 +17,36 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @EnableSwagger2                // Swagger的开关，表示已经启用Swagger
 @Configuration                 // 声明当前配置类
-@EnableWebMvc
 public class SwaggerConfig {
-	@Value("${swagger.basePackage}")
-	private String basePackage;// controller接口所在的包
 
-	@Value("${swagger.title}")
-	private String title;// 当前文档的标题
+    @Value("${swagger.basePackage}")
+    private String basePackage;// controller接口所在的包
 
-	@Value("${swagger.description}")
-  private String description;// 当前文档的详细描述
+    @Value("${swagger.title}")
+    private String title;// 当前文档的标题
 
-	@Value("${swagger.version}")
-  private String version;// 当前文档的版本
+    @Value("${swagger.description}")
+    private String description;// 当前文档的详细描述
 
-	@Bean
-  public Docket createRestApi() {
-     return new Docket(DocumentationType.SWAGGER_2)
-           .apiInfo(apiInfo())
-				 		.host("localhost:8080")
-           .select()
-           .apis(RequestHandlerSelectors.basePackage(basePackage))
-           .paths(PathSelectors.any())
-           .build();
-  }
+    @Value("${swagger.version}")
+    private String version;// 当前文档的版本
 
-  private ApiInfo apiInfo() {
-    return new ApiInfoBuilder()
-          .title(title)
-          .description(description)
-          .version(version)
-          .build();
-	}
+    @Bean
+    public Docket createRestApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .host("localhost:8080")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage(basePackage))
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title(title)
+                .description(description)
+                .version(version)
+                .build();
+    }
 }

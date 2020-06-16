@@ -23,6 +23,24 @@ public interface UserService {
     User queryById(Long id);
 
     /**
+     * 增加用户积分
+     *
+     * @param id 主键
+     * @param value 增加的值
+     * @return 实例对象
+     */
+    User addById(Long id,int value);
+
+    /**
+     * 减少用户积分
+     *
+     * @param id 主键
+     * @param value 增加的值
+     * @return 实例对象
+     */
+    User subById(Long id,int value);
+
+    /**
      * 新增数据
      *
      * @param user 实例对象

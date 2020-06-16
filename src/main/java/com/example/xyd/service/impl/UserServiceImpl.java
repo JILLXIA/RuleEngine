@@ -33,6 +33,38 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 根据id增加score
+     *
+     * @param id 主键
+     * @param value 值
+     * @return 实例对象
+     */
+    @Override
+    public User addById(Long id,int value) {
+        User user = this.userDao.queryById(id);
+        int res = user.getScore()+value;
+        user.setScore(res);
+        return this.userDao.updateById(user);
+    }
+
+    /**
+     * 根据id减少score
+     *
+     * @param id 主键
+     * @param value 值
+     * @return 实例对象
+     */
+    @Override
+    public User subById(Long id,int value) {
+        User user = this.userDao.queryById(id);
+        int res = user.getScore()-value;
+        user.setScore(res);
+        return this.userDao.updateById(user);
+    }
+
+
+
+    /**
      * 新增数据
      *
      * @param user 实例对象

@@ -38,4 +38,24 @@ public class UserController {
         return user.getScore();
     }
 
+    @GetMapping("/user/addScore")
+    @ResponseBody
+    public Integer addUserScore(@RequestParam("userId") Long userId,@RequestParam("value") int value) {
+        User user = userService.addById(userId,value);
+        if (user == null) {
+            return null;
+        }
+        return user.getScore();
+    }
+
+    @GetMapping("/user/subScore")
+    @ResponseBody
+    public Integer subUserScore(@RequestParam("userId") Long userId,@RequestParam("value") int value) {
+        User user = userService.subById(userId,value);
+        if (user == null) {
+            return null;
+        }
+        return user.getScore();
+    }
+
 }

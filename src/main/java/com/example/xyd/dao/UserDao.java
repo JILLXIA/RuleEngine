@@ -23,6 +23,14 @@ public interface UserDao {
     User queryById(Long id);
 
     /**
+     * 通过ID查询单条数据
+     *
+     * @param user 更新的新用户
+     * @return 实例对象
+     */
+    User updateById(User user);
+
+    /**
      * 查询指定行数据
      *
      * @param offset 查询起始位置

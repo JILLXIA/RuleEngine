@@ -18,6 +18,17 @@
         where id = #{id}
     </select>
 
+    <!--更新单个-->
+    <update id="updateById" parameterType="com.example.xyd.entity.User">
+        update user
+        <set>
+            <if test="score != null">
+                score = #{score}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="UserMap">
         select

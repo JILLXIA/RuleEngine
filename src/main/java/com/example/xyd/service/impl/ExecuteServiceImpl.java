@@ -68,6 +68,12 @@ public class ExecuteServiceImpl implements ExecuteService {
             String operator = rule.getOperator();
             Integer minThreshold = rule.getMinThreshold();
             Integer maxThreshold = rule.getMaxThreshold();
+
+            if(result >= minThreshold && result <= maxThreshold){
+                // Rocketmq
+            }else{
+                // 起一个新线程
+            }
             /*
             if (operator.equals(">")) {
                 if (result > threshold) {

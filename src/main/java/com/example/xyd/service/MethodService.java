@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * (Method)表服务接口
  *
- * @author saysky
+ * @author xyd
  * @since 2020-06-13 22:01:25
  */
 public interface MethodService {

@@ -7,13 +7,13 @@
         <result property="username" column="username" jdbcType="VARCHAR"/>
         <result property="password" column="password" jdbcType="VARCHAR"/>
         <result property="score" column="score" jdbcType="INTEGER"/>
-        <result property="type" column="type" jdbcType="VARCHAR"/>
+
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="UserMap">
         select
-          id, username, password, score, type
+          id, username, password, score
         from rule_engine.user
         where id = #{id}
     </select>
@@ -32,7 +32,7 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="UserMap">
         select
-          id, username, password, score, type
+          id, username, password, score
         from rule_engine.user
         limit #{offset}, #{limit}
     </select>
@@ -40,7 +40,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="UserMap">
         select
-          id, username, password, score, type
+          id, username, password, score
         from rule_engine.user
         <where>
             <if test="id != null">
@@ -55,16 +55,14 @@
             <if test="score != null">
                 and score = #{score}
             </if>
-            <if test="type != null and type != ''">
-                and type = #{type}
-            </if>
+
         </where>
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into rule_engine.user(username, password, score, type)
-        values (#{username}, #{password}, #{score}, #{type})
+        insert into rule_engine.user(username, password, score)
+        values (#{username}, #{password}, #{score})
     </insert>
 
     <!--通过主键修改数据-->
@@ -80,9 +78,7 @@
             <if test="score != null">
                 score = #{score},
             </if>
-            <if test="type != null and type != ''">
-                type = #{type},
-            </if>
+
         </set>
         where id = #{id}
     </update>

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Properties;
 
 /**
- * @author 言曌
+ * @author xyd
  * @date 2020/6/13 10:21 下午
  */
 @Configuration

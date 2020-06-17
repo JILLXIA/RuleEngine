@@ -7,7 +7,7 @@ import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * @author 言曌
+ * @author xyd
  * @date 2020/6/14 2:06 下午
  */
 

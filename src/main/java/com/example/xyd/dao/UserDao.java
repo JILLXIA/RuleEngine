@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * (User)表数据库访问层
  *
- * @author saysky
+ * @author xyd
  * @since 2020-06-13 22:01:25
  */
 @Mapper

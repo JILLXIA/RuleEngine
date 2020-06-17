@@ -9,57 +9,47 @@
         </style>
         <section class="content-header">
             <h1>
-                修改规则
+                修改用户
             </h1>
             <ol class="breadcrumb">
                 <li>
                     <a data-pjax="true" href="/admin">
                         <i class="fa fa-dashboard"></i> 首页</a>
                 </li>
-                <li><a data-pjax="true" href="#">规则管理</a></li>
-                <li class="active">修改规则</li>
+                <li><a data-pjax="true" href="#">用户管理</a></li>
+                <li class="active">修改用户</li>
             </ol>
         </section>
         <!-- tab选项卡 -->
         <section class="content container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="post" class="form-horizontal" action="/rule">
-                        <input type="hidden" name="id" th:value="${rule.id}" >
+                    <form method="post" class="form-horizontal" action="/user">
+                        <input type="hidden" name="id" th:value="${user.id}" >
                         <div class="box box-primary">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label class="col-lg-2 col-sm-4 control-label">规则名称</label>
+                                    <label class="col-lg-2 col-sm-4 control-label">用户名</label>
                                     <div class="col-lg-4 col-sm-8">
-                                        <input type="text" class="form-control" name="name" th:value="${rule.name}">
+                                        <input type="text" class="form-control" name="username" th:value="${user.username}">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-2 col-sm-4 control-label">取数方法</label>
+                                    <label class="col-lg-2 col-sm-4 control-label">密码</label>
                                     <div class="col-lg-4 col-sm-8">
-                                        <select class="form-control" name="methodId">
-                                            <option th:value="${item.id}" th:each="item : ${methodList}" th:selected="${item.id == rule.methodId}">
-                                                [[${item.name}]]
-                                            </option>
-                                        </select>
+                                        <input type="text" class="form-control" name="password" th:value="${user.password}">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-2 col-sm-4 control-label">上界</label>
+                                    <label class="col-lg-2 col-sm-4 control-label">积分</label>
                                     <div class="col-lg-4 col-sm-8">
-                                        <input type="text" class="form-control" name="maxThreshold" th:value="${rule.maxThreshold}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-2 col-sm-4 control-label">下界</label>
-                                    <div class="col-lg-4 col-sm-8">
-                                        <input type="text" class="form-control" name="minThreshold" th:value="${rule.minThreshold}">
+                                        <input type="text" class="form-control" name="score" th:value="${user.score}">
                                     </div>
                                 </div>
                             </div>
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-primary btn-sm">保存</button>
-                                <a href="/rule" class="btn btn-info btn-sm">返回</a>
+                                <a href="/user" class="btn btn-info btn-sm">返回</a>
                             </div>
                         </div>
                     </form>

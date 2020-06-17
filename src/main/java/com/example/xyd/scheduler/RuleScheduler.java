@@ -4,6 +4,9 @@ import com.example.xyd.entity.Rule;
 import com.example.xyd.service.ExecuteService;
 import com.example.xyd.service.RuleService;
 import com.example.xyd.service.impl.ExecuteServiceImpl;
+import org.apache.rocketmq.client.exception.MQBrokerException;
+import org.apache.rocketmq.client.exception.MQClientException;
+import org.apache.rocketmq.remoting.exception.RemotingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +20,7 @@ import java.util.List;
 /**
  * 定时器
  *
- * @author 言曌
+ * @author xyd
  * @date 2020/6/14 11:57 上午
  */
 @Component
@@ -50,7 +53,17 @@ public class RuleScheduler {
         // 遍历所有规则
         List<Rule> ruleList = ruleService.findAll();
         for (Rule rule : ruleList) {
-            executeService.execute(rule);
+            try {
+                executeService.execute(rule);
+            } catch (MQClientException e) {
+                e.printStackTrace();
+            } catch (RemotingException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (MQBrokerException e) {
+                e.printStackTrace();
+            }
         }
 
     }

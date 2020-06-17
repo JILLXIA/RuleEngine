@@ -44,8 +44,8 @@ CREATE TABLE `rule` (
   `name` varchar(255) NOT NULL COMMENT '规则名称',
   `method_id` bigint(20) NOT NULL COMMENT '取数方法ID',
   `operator` varchar(10) NOT NULL COMMENT '运算符：>、<、>=、<=、==',
-  `minThreshold` int(11) NOT NULL COMMENT '下界阈值',
-  `maxThreshold` int(11) NOT NULL COMMENT '上界阈值',
+  `min_threshold` int(11) NOT NULL COMMENT '下界阈值',
+  `max_threshold` int(11) NOT NULL COMMENT '上界阈值',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 

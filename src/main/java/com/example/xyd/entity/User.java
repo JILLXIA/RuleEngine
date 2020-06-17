@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * (User)实体类
  *
- * @author saysky
+ * @author xyd
  * @since 2020-06-13 22:01:25
  */
 public class User implements Serializable {
@@ -26,10 +26,7 @@ public class User implements Serializable {
     * 积分
     */
     private Integer score;
-    /**
-    * 用户类型：管理员admin、用户user
-    */
-    private String type;
+
 
 
     public Long getId() {
@@ -62,14 +59,6 @@ public class User implements Serializable {
 
     public void setScore(Integer score) {
         this.score = score;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
 }
